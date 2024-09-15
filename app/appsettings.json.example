@@ -1,0 +1,19 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=<YOUR_HOST>;Port=5432;Database=clickable_game;Username=<DB_USERNAME>;Password=<DB_PASSWORD>"
+  },
+  "Jwt": {
+    "Key": "<YOUR_32_CHAR_KEY>",
+    "Issuer": "<YOUR_ISSUER>",
+    "Audience": "<YOUR_AUDIENCE>",
+    "ExpireMinutes": 60
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*"
+}

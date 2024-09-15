@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clickablegamebackend-app-1
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - my_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ./app:/app
+
+
+  postgres:
+    image: postgres:latest
+    container_name: clickablegamebackend-postgres-1
+    environment:
+      POSTGRES_USER: <DB_USERNAME>
+      POSTGRES_PASSWORD: <DB_PASSWORD>
+      POSTGRES_DB: clickable_game
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - my_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U <DB_USERNAME> -d clickable_game"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  my_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
