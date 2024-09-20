@@ -6,11 +6,12 @@ using System.Collections.Generic;
 namespace ClickableGameBackend.Models {
     public class Item
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
+        public required int Id { get; set; }
+        public required string? Name { get; set; }
 
-        public int Power { get; set; }
-        public decimal Price { get; set; }
+        public required decimal Power { get; set; }
+        public required decimal Price { get; set; }
+        public required string ImageUrl { get; set; }
 
         public  ICollection<Transaction>? Transactions { get; set; }
     }
