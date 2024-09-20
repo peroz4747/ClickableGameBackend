@@ -56,6 +56,7 @@ namespace ClickableGameBackend.Controllers
                 {
                     Id = ui.ItemId,
                     Name = ui.Name,
+                    Power = ui.Power,
                     Count = ui.Count
                 }).ToList()
             };

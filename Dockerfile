@@ -10,7 +10,7 @@ RUN dotnet restore "./ClickableGameBackend.csproj"
 COPY app/ ./
 
 # Build the project
-RUN dotnet build "./ClickableGameBackend.csproj" -c Debug -o /app/build
+RUN dotnet build "./ClickableGameBackend.csproj" -c Release -o /app/build
 
 # Use the same SDK image for the runtime to ensure the SDK is available
 FROM mcr.microsoft.com/dotnet/sdk:8.0
@@ -24,7 +24,7 @@ COPY --from=build-env /root/.nuget /root/.nuget
 # Install dotnet-ef tool
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
-ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_ENVIRONMENT=Docker
 
 RUN apt-get update \
     && apt-get install -y unzip curl \

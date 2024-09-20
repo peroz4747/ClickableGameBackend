@@ -115,6 +115,7 @@ namespace ClickableGameBackend.Controllers {
                     UserId = user.Id,
                     ItemId = item.Id,
                     Name = item.Name,
+                    Power = item.Power,
                     Count = 1 // Starting with 1, or adjust based on logic
                 };
 

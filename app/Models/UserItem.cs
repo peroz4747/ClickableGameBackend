@@ -9,6 +9,7 @@ namespace ClickableGameBackend.Models {
         public int Id { get; set; }
         public int UserId { get; set; }
         public int ItemId { get; set; }
+        public int Power { get; set; }
         public string? Name { get; set; }
         public int Count { get; set; }
     }

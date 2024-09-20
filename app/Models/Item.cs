@@ -8,6 +8,8 @@ namespace ClickableGameBackend.Models {
     {
         public int Id { get; set; }
         public string? Name { get; set; }
+
+        public int Power { get; set; }
         public decimal Price { get; set; }
 
         public  ICollection<Transaction>? Transactions { get; set; }

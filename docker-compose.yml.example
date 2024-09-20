@@ -13,11 +13,6 @@ services:
         condition: service_healthy
     networks:
       - my_network
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    volumes:
-      - ./app:/app
-
 
   postgres:
     image: postgres:latest
